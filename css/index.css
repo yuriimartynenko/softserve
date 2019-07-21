@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
+
+html, body, h1, h2, h3, p, div, nav, section, main, figure, ul {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+h3 {
+    margin: 15px 0 -13px 0px;
+    color: #4e596d;
+}
+
+p {
+    text-indent: 20px;
+    padding-top: 14px;
+    color: #404040;
+}
+
+img {
+    width: 45%;
+}
+
+figure {
+    text-align: center;
+}
+
+figcaption {
+    font-weight: bold;
+    color: #545454;
+}
+
+footer {
+    background: #d6d6d6;
+    padding: 12px 0 8px;
+    color: #333333;
+}
+
+nav ul li {
+    display: inline-block;
+    margin: 10px 0;
+}
+
+nav ul li a {
+    padding: 10px 13px;
+    text-transform: uppercase;
+    background-color: rgba(25, 44, 78, 0.65);
+}
+
+nav ul li a:hover {
+    background-color: rgb(25, 44, 78);
+    transition: 0.3s;
+    text-shadow: 0px 0px 2px white;
+}
+
+.content {
+    padding: 30px 0 30px;
+}
+
+nav {
+    float: left;
+}
+
+.container {
+    max-width: 980px;
+    margin: 0 auto;
+}
+
+.header-fixed {
+    height: 58px;
+    position: fixed;
+    display: inline-block;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.26);
+    padding: 0 10px;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+header {
+    background: url(../img/banner.jpg) no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 650px;
+}
+
+.logo {
+    background: url(../img/logo.png) no-repeat;
+    float: right;
+    background-size: 50px;
+    height: 63px;
+    width: 63px;
+    margin-top: 3px;
+}
+
+nav.menu {
+    margin-top: 5px;
+}
+
+.dropdown {
+    display: none;
+}
+
+nav ul li:hover .dropdown{
+    position: fixed;
+    width: 208px;
+    margin-top: 10px;
+    display: block;
+}
+
+.title {
+    text-align: center;
+    color: rgb(55, 64, 90);
+    text-transform: uppercase;
+    font-size: 40px;
+}
+
+.banner-text {
+    padding-top: 310px;
+    font-size: 24px;
+    color: white;
+}
+
+.footer {
+    text-align: center;
+}
