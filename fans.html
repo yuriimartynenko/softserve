@@ -7,95 +7,126 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Appeal of fans</title>
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="css/index.css">
 </head>
 
 <body>
-    <header>
+    <header class="mb">
         <div class="header-fixed">
-            <div class="container">
-                <nav class="menu">
-                    <ul>
-                        <li><a href="index.html">Main</a></li>
-                        <li><a href="matches.html">Matches</a>
-                            <ul class="dropdown">
-                                <li><a href="#">Calendar of matches</a></li>
-                                <li><a href="#">Next game</a></li>
-                                <li><a href="#">Raitings</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="news.html">News</a></li>
-                        <li><a href="fans.html">Fans</a></li>
-                        <li><a href="contacts.html">Contacts</a></li>
-                        <li><a href="admin.html">Admin</a></li>
-                    </ul>
+            <div class="container p-0 fixed-top">
+                <nav class="navbar navbar-expand-md">
+                    <button class="navbar-toggler navbar-dark collapsed" type="button" data-toggle="collapse"
+                        data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false"
+                        aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="navbar-collapse collapse" id="navbarCollapse" style="">
+                        <ul class="navbar-nav mr-auto mt-0 mt-lg-0">
+                            <li class="nav-item active">
+                                <a class="nav-link" href="index.html">Main</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                                    Matches
+                                </a>
+                                <div class="dropdown-menu fade">
+                                    <a class="dropdown-item nav-link" href="calendar-of-matches.html">Calendar of matches</a>
+                                    <a class="dropdown-item nav-link" href="#">Next game</a>
+                                    <a class="dropdown-item nav-link" href="#">Raitings</a>
+                                </div>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="news.html">News</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="fans.html">Fans</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="contacts.html">Contacts</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="admin.html">Admin</a>
+                            </li>
+                        </ul>
+                    </div>
                 </nav>
+            </div>
+            <div class="container p-0">
                 <a href="index.html" class="logo"></a>
             </div>
         </div>
     </header>
     <main>
-        <section class="container fans">
-            <h1 class="title">Appeal of fans</h1>
-            <article>
-                <header>
-                    <h2>Title</h2>
-                </header>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
-                    aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-                    occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                </p>
-                <footer>
-                    <span>23.07.2019 18:51</span>
-                    <span class="name-fan">Yurii Martynenko</span>
-                </footer>
-            </article>
-            <hr>
-            <article>
-                                <header>
-                                    <h2>Title</h2>
-                                </header>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                    Duis
-                    aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-                    occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                </p>
-                <footer>
-                    <span>23.07.2019 18:51</span>
-                    <span class="name-fan">Yurii Martynenko</span>
-                </footer>
-            </article>
-            <hr>
-            <article>
-                                <header>
-                                    <h2>Title</h2>
-                                </header>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                    Duis
-                    aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-                    occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                </p>
-                <footer>
-                    <span>23.07.2019 18:51</span>
-                    <span class="name-fan">Yurii Martynenko</span>
-                </footer>
-            </article>
-            <hr>
+        <section class="mb-4">
+            <div class="container">
+                <div class="row bgr-container">
+                    <div class="col col-sm col-md col-lg col-xl">
+                        <h1 class="title mb-4">Appeal of fans</h1>
+                        <article>
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                incididunt ut labore et dolore magna
+                                aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                                aliquip ex ea commodo consequat. Duis
+                                aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+                                pariatur. Excepteur sint
+                                occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
+                                laborum.
+                            </p>
+                            <div class="footer-fans">
+                                <span>23.07.2019 18:51</span>
+                                <span class="name-fan">Yurii Martynenko</span>
+                            </div>
+                        </article>
+                        <hr>
+                        <article>
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                incididunt ut labore et dolore magna
+                                aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                                aliquip ex ea commodo consequat.
+                                Duis
+                                aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+                                pariatur. Excepteur sint
+                                occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
+                                laborum.
+                            </p>
+                            <div class="footer-fans">
+                                <span>23.07.2019 18:51</span>
+                                <span class="name-fan">Yurii Martynenko</span>
+                            </div>
+                        </article>
+                        <hr>
+                        <article>
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                incididunt ut labore et dolore magna
+                                aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                                aliquip ex ea commodo consequat.
+                                Duis
+                                aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+                                pariatur. Excepteur sint
+                                occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
+                                laborum.
+                            </p>
+                            <div class="footer-fans">
+                                <span>23.07.2019 18:51</span>
+                                <span class="name-fan">Yurii Martynenko</span>
+                            </div>
+                        </article>
+                        <hr class="mb-4">
+                        <form action="#" method="POST" class="form-сomment">
+                            <input type="text" name="name" placeholder="Your name" class="name-comment"><br>
+                            <textarea name="text" class="text-comment" placeholder="Write an appeal..."></textarea><br>
+                            <input type="submit" name="send" value="Send" class="btn-send">
+                        </form>
+                    </div>
+                </div>
+            </div>
         </section>
-        <section class="container">
-                    <form action="#" method="POST" class="form-сomment">
-                        <input type="text" name="name"  placeholder="Your name" class="name-comment"><br>
-                        <input type="text" name="title" placeholder="Title" class="name-comment"><br>
-                        <textarea name="text" class="text-comment" placeholder="Write an appeal..."></textarea><br>
-                        <input type="submit" name="send" value="Send" class="btn-send">
-                    </form>
-        </section>
+
     </main>
     <footer>
         <div class="container footer">
