@@ -13,6 +13,12 @@
 </head>
 
 <body>
+    <div class="alert alert-success" role="alert">
+        Your news were successfully added
+    </div>
+    <div class="alert alert-danger" role="alert">
+        Please fill in all the required fields.
+    </div>
     <header class="mb">
         <div class="header-fixed">
             <div class="container p-0 fixed-top">
@@ -22,7 +28,7 @@
                         aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
-                    <div class="navbar-collapse collapse" id="navbarCollapse" style="">
+                    <div class="navbar-collapse collapse" id="navbarCollapse">
                         <ul class="navbar-nav mr-auto mt-0 mt-lg-0">
                             <li class="nav-item active">
                                 <a class="nav-link" href="index.html">Main</a>
@@ -32,7 +38,8 @@
                                     Matches
                                 </a>
                                 <div class="dropdown-menu fade">
-                                    <a class="dropdown-item nav-link" href="calendar-of-matches.html">Calendar of matches</a>
+                                    <a class="dropdown-item nav-link" href="calendar-of-matches.html">Calendar of
+                                        matches</a>
                                     <a class="dropdown-item nav-link" href="#">Next game</a>
                                     <a class="dropdown-item nav-link" href="#">Raitings</a>
                                 </div>
@@ -65,6 +72,7 @@
                 <div class="row">
                     <div class="container img-container col-sm-6 mt-3 mb-3">
                         <div class="img-upload">
+                            <div class="img-stub rounded col" id="img-adding"></div>
                             <img src="img/no-image.png" id="imgUpload" class="hidden-img col">
                         </div>
                     </div>
@@ -72,7 +80,7 @@
                         <div class="input-group rounded">
                             <div class="custom-file">
                                 <input type="file" class="custom-file-input" id="fileUpload"
-                                    placeholder="Add news image" aria-describedby="inputGroupFileAddon01">
+                                    placeholder="Add news image">
                                 <label class="custom-file-label" data-browse="Select" placeholder="Add news image"
                                     for="fileUpload">Select
                                     your file...</label>
@@ -82,10 +90,11 @@
                     <div class="container form-container col-sm-6 mt-3 mb-3">
                         <div class="md-form title input-group input-group mb-4">
                             <div class="input-group-prepend">
-                                <label class="input-group-text md-addon px-2 px-lg-3" id="material-addon1" for="newsTitle">Newstitle</label>
+                                <label class="input-group-text md-addon px-2 px-lg-3" id="material-addon1"
+                                    for="newsTitle">Newstitle</label>
                             </div>
                             <input id="newsTitle" type="text" class="form-control" placeholder="Type a news title here"
-                                aria-label="News title" aria-describedby="material-addon1" spellcheck="true" value=""
+                                aria-label="News title" aria-describedby="material-addon1" value=""
                                 required="">
                         </div>
                         <div class="md-form input-group input-group news-text">
@@ -93,14 +102,13 @@
                                 <label class="input-group-text md-addon px-2 px-lg-3" for="newsText">News text</label>
                             </div>
                             <textarea id="newsText" class="md-textarea form-control" aria-label="With textarea"
-                                placeholder="News text goes here..." spellcheck="true" required="required"></textarea>
+                                placeholder="News text goes here..." required="required"></textarea>
                         </div>
                     </div>
                     <div class="container img-container col-sm-6 mt-3 mb-3 button-wrap">
-                            <button type="submit"
-                                class="btn btn-lg btn-light input-group-text justify-content-center"
-                                data-toggle="modal" data-target="#acceptionModal" id="addNews">Add
-                                news</button>
+                        <button type="submit" class="btn btn-lg btn-light input-group-text justify-content-center"
+                            data-toggle="modal" data-target="#acceptionModal" id="addNews">Add
+                            news</button>
                     </div>
                 </div>
             </div>
@@ -111,11 +119,7 @@
             <span>© 2019 Yurii Martynenko</span>
         </div>
     </footer>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-        crossorigin="anonymous"></script>
+    <script src="js/addNews.js"></script>
 </body>
 
 </html>

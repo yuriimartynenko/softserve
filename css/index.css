@@ -156,7 +156,7 @@ a {
 }
 
 .img-upload {
-    width: 50%;
+    width: 60%;
     margin: 0 auto;
 }
 
@@ -221,24 +221,6 @@ nav ul li a:hover {
     transition: all 0.5s;
 }
 
-/* END: Bootstrap DropDown styling */
-
-/*.dropdown {
-    display: none;
-}
-
-.dropdown li {
-    display: block;
-}
-
-nav ul li:hover .dropdown{
-    position: fixed;
-    width: 202px;
-    margin-top: 0px;
-    display: block;
-    background: #014c77;
-}*/
-
 textarea#newsText {
     height: 160px;
 }
@@ -281,10 +263,16 @@ textarea#newsText {
 }
 
 .name-comment {
-    width: 316px;
+    width: 50%;
     padding: 10px;
     border: 1px solid #d2d2d2;
     margin-bottom: 10px;
+}
+
+.input_error {
+    margin-top: -10px;
+    margin-bottom: 10px;
+    color: red;
 }
 
 .text-comment:focus, .name-comment:focus {
@@ -296,27 +284,27 @@ textarea#newsText {
     padding: 10px;
     border: 1px solid #d2d2d2;
     margin-bottom: 10px;
-    width: 316px;
+    width: 50%;
     height: 127px;
 }
 
 .btn-send {
     border: 1px solid #586a79;
-    background: #3a5f98;
+    background: #014c77;
     padding: 6px 22px;
     font-size: 16px;
     color: white;
-    border-radius: 17px;
+    border-radius: 22px;
     margin-bottom: 15px;
     text-shadow: 1px 0px 16px;
-    box-shadow: 1px 1px 1px black;
+    box-shadow: 1px 1px 1px #909090;
     cursor: pointer;
     outline: 0;
+    transition: 0.3s;
 }
 .btn-send:hover {
     border: 1px solid #586a79;
-    background: #355380;
-    transition: 0.3s;
+    background: #034267;
 }
 .btn-send:focus {
     text-shadow: none;
@@ -324,4 +312,15 @@ textarea#newsText {
 }
 .footer {
     text-align: center;
+}
+
+.alert {
+    display: none;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1111;
+    height: 58px;
+    line-height: 28px;
+    border-radius: 0;
 }
