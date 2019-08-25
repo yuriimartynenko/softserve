@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Вияснити, чи входить цифра 3 в запис числа n^2</title>
+</head>
+
+<body>
+    <script>
+        function num(n) {
+            let a = Math.pow(n, 2);
+            do {
+                if (a % 10 === 3) {
+                    console.log('Okay');
+                    return 0;
+                }
+                a = Math.floor(a / 10);
+            } while (a > 0);
+            console.log('Not okay');
+            return 0;
+        }
+        num(19);
+    </script>
+</body>
+
+</html>

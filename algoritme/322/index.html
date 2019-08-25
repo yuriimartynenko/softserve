@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const minNum = 1;
+        const maxNum = 10000;
+        let maxSum = 0;
+        for (let i = minNum; i < maxNum; i++) {
+            let currentSum = 0;
+            for (let j = minNum; j <= i; j++) {
+                if (i % j === 0) {
+                    currentSum += j;
+                }
+                if (currentSum > maxSum) {
+                    maxSum = currentSum;
+                }
+            }
+        }
+        console.log(maxSum);
+    </script>
+</body>
+
+</html>
