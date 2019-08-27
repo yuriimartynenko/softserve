@@ -12,7 +12,7 @@ function functionName(event) {
     const date = new Date();
     const userNameValue = userName.value;
     const userCommentValue = userComment.value;
-    if (userNameValue.length < 2 || userCommentValue.length < 6) {
+    if (userNameValue.trim().length < 2 || userCommentValue.trim().length < 6) {
         alertError.style.display = 'block';
         setTimeout(function () {
             alertError.style.display = 'none';

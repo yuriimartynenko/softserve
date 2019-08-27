@@ -6,18 +6,19 @@ const alertError = document.querySelector('.alert-danger');
 const fileUpload = document.querySelector('#fileUpload');
 const imgUpload = document.querySelector('#imgUpload');
 const imgAdding = document.querySelector('#img-adding');
+const img = document.querySelector('#fileUpload');
 
 function imageUpload() {
     const reader = new FileReader();
-    const img = document.querySelector('input[type=file]').files[0];
+    const imgFile = img.files[0];
 
     reader.onloadend = () => {
         imgUpload.src = reader.result;
         imgAdding.style.display = 'none';
         imgUpload.style.display = 'block';
     }
-    if (img) {
-        reader.readAsDataURL(img);
+    if (imgFile) {
+        reader.readAsDataURL(imgFile);
     } else {
         imgUpload.src = '';
     }
@@ -25,19 +26,19 @@ function imageUpload() {
 
 function addNews(event) {
     event.preventDefault();
-
-    const img = document.querySelector('input[type=file]').files[0];
+    const imgFile = img.files[0];
     const newsTitleValue = newsTitle.value;
     const newsTextValue = newsText.value;
 
-    if (newsTitleValue.length < 2 || newsTextValue.length < 6 || !img) {
+    if (newsTitleValue.trim().length < 2 || newsTextValue.trim().length < 6 || !imgFile) {
         alertError.style.display = 'block';
         setTimeout(function () {
             alertError.style.display = 'none';
         }, 3000);
         return false;
     }
-    
+
+    img.value = '';
     imgUpload.src = 'img/no-image.png';
     newsTitle.value = '';
     newsText.value = '';
