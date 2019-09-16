@@ -1,0 +1,32 @@
+[
+    { 
+        "key": 1,
+        "newsTitle": "ASHLEY COLE TALKS TRANSFERS, TROPHIES AND THE FUTURE", 
+        "newsText": "Only a select few can lay claim to have been part of a club’s best-ever team, the standout selection that achieved the impossible, broke new ground or succeeded where others had failed.",
+        "img": "img/news-photo-four.png"
+    },
+    {
+        "key": 2,
+        "newsTitle": "MEDIA WATCH: ROSS BARKLEY AND MASON MOUNT IMPRESS IN WIN",
+        "newsText": "Only a select few can lay claim to have been part of a club’s best-ever team, the standout selection that achieved the impossible, broke new ground or succeeded where others had failed.",
+        "img": "img/Zappacosta-Drinkwater.jpg"
+    },
+    {
+        "key": 3,
+        "newsTitle": "MEDIA WATCH",
+        "newsText": "Only a select few can lay claim to have been part of a club’s best-ever team, the standout selection that achieved the impossible, broke new ground or succeeded where others had failed.",
+        "img": "img/news-photo-two.png"
+    },
+    {
+        "key": 4,
+        "newsTitle": "ROSS BARKLEY AND MASON MOUNT IMPRESS IN WIN",
+        "newsText": "Only a select few can lay claim to have been part of a club’s best-ever team, the standout selection that achieved the impossible, broke new ground or succeeded where others had failed.",
+        "img": "img/news-photo-three.png"
+    },
+    {
+        "key": 5,
+        "newsTitle": "MEDIA WATCH: ROSS BARKLEY AND MASON MOUNT IMPRESS IN WIN",
+        "newsText": "Only a select few can lay claim to have been part of a club’s best-ever team, the standout selection that achieved the impossible, broke new ground or succeeded where others had failed.",
+        "img": "img/news-photo-three.png"
+    }
+]

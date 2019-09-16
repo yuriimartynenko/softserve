@@ -7,6 +7,11 @@ const fileUpload = document.querySelector('#fileUpload');
 const imgUpload = document.querySelector('#imgUpload');
 const imgAdding = document.querySelector('#img-adding');
 const img = document.querySelector('#fileUpload');
+const clearNews = document.querySelector('#clearNews');
+
+const isOnline = () => {
+    return window.navigator.onLine;
+}
 
 function imageUpload() {
     const reader = new FileReader();
@@ -24,6 +29,17 @@ function imageUpload() {
     }
 }
 
+const saveToLocalStorage = (key, newsTitle, newsText, img) => {
+    const localNews = JSON.parse(localStorage.getItem('news')) || [];
+    localNews.push({
+        key,
+        newsTitle,
+        newsText,
+        img
+    })
+    localStorage.setItem('news', JSON.stringify(localNews));
+}
+
 function addNews(event) {
     event.preventDefault();
     const imgFile = img.files[0];
@@ -38,6 +54,14 @@ function addNews(event) {
         return false;
     }
 
+    const key = new Date().getTime();
+    if (isOnline()) {
+        console.log('Online');
+        return false;
+    } else {
+        saveToLocalStorage(key, newsTitleValue, newsTextValue, imgUpload.src)
+    }
+
     img.value = '';
     imgUpload.src = 'img/no-image.png';
     newsTitle.value = '';
@@ -49,5 +73,10 @@ function addNews(event) {
     }, 3000);
 }
 
+function clearLS() {
+    localStorage.removeItem('news');
+}
+
 fileUpload.addEventListener('change', imageUpload);
 buttonSend.addEventListener('click', addNews);
+clearNews.addEventListener('click', clearLS);
