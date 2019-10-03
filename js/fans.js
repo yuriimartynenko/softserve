@@ -1,11 +1,13 @@
+import { Comments } from './db.js';
 const buttonSend = document.querySelector('.sendComment');
 const listFans = document.querySelector('.list-fans');
 const userName = document.querySelector('.name-comment');
 const userComment = document.querySelector('.text-comment');
-const inputError = document.querySelectorAll('.input_error');
 const alertSuccess = document.querySelector('.alert-success');
 const alertError = document.querySelector('.alert-danger');
 const clearComments = document.querySelector('#clearComments');
+
+let useLocalStorage = false;
 
 const isOnline = () => {
     return window.navigator.onLine;
@@ -45,6 +47,27 @@ newComments.forEach((comments) => {
     addComments(formCommentsHTML(comments.userName, comments.userComment, comments.key));
 });
 
+const request = window.indexedDB.open('chelseaDB', 5);
+let db;
+
+request.onsuccess = function (event) {
+    console.log('success');
+    db = event.target.result;
+
+    let transaction = db.transaction(["comments"], "readwrite");
+    let objectStore = transaction.objectStore("comments");
+    let getData = objectStore.getAll();
+    if (!useLocalStorage) {
+        getData.onsuccess = function (event) {
+            let data = getData.result;
+            let news;
+            for (news of data) {
+                addComments(formCommentsHTML(news.title, news.text, news.date));
+            }
+        }
+    }
+};
+
 function onAddComment(event) {
     event.preventDefault();
 
@@ -63,7 +86,12 @@ function onAddComment(event) {
         console.log('Online');
         return false;
     } else {
-        saveToLocalStorage(date, userNameValue, userCommentValue);
+        if (useLocalStorage) {
+            saveToLocalStorage(date, userNameValue, userCommentValue);
+        } else {
+            let comments = new Comments(date, userNameValue, userCommentValue);
+            comments.sendCommentsToIDB();
+        }
     }
 
     alertSuccess.style.display = 'block';

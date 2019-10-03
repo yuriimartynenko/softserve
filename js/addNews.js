@@ -1,3 +1,4 @@
+import { News } from './db.js';
 const buttonSend = document.querySelector('#addNews');
 const newsTitle = document.querySelector('#newsTitle');
 const newsText = document.querySelector('#newsText');
@@ -8,6 +9,8 @@ const imgUpload = document.querySelector('#imgUpload');
 const imgAdding = document.querySelector('#img-adding');
 const img = document.querySelector('#fileUpload');
 const clearNews = document.querySelector('#clearNews');
+
+let useLocalStorage = false;
 
 const isOnline = () => {
     return window.navigator.onLine;
@@ -59,7 +62,12 @@ function addNews(event) {
         console.log('Online');
         return false;
     } else {
-        saveToLocalStorage(key, newsTitleValue, newsTextValue, imgUpload.src)
+        if(useLocalStorage) {
+            saveToLocalStorage(key, newsTitleValue, newsTextValue, imgUpload.src);
+        } else {
+            let news = new News(key, newsTitleValue, newsTextValue, imgUpload.src);
+            news.sendNewsToIDB();
+        }
     }
 
     img.value = '';
