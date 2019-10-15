@@ -56,16 +56,22 @@ function addNews(event) {
         }, 3000);
         return false;
     }
-
+    const imgPath = imgUpload.src;
     const key = new Date().getTime();
     if (isOnline()) {
-        console.log('Online');
-        return false;
+        fetch('http://localhost:3000/news', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json, text/plain, */*',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ newsTitleValue, newsTextValue, imgPath }),
+        });
     } else {
         if(useLocalStorage) {
-            saveToLocalStorage(key, newsTitleValue, newsTextValue, imgUpload.src);
+            saveToLocalStorage(key, newsTitleValue, newsTextValue, imgPath);
         } else {
-            let news = new News(key, newsTitleValue, newsTextValue, imgUpload.src);
+            let news = new News(key, newsTitleValue, newsTextValue, imgPath);
             news.sendNewsToIDB();
         }
     }
