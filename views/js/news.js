@@ -6,9 +6,9 @@ const addNews = newsHtml => {
 
 let useLocalStorage = false;
 
-const formNewsHTML = (newsText, newsTitle, key, img) => {
+const formNewsHTML = (newsText, newsTitle, img) => {
     return `
-    <div class="col-sm-6 col-lg-3  mt-3 mb-3" data-key=${key}>
+    <div class="col-sm-6 col-lg-3  mt-3 mb-3">
         <article class="card">
             <img class="card-img-top" src="${img}" alt="New image">
             <h5 class="text-center card-title mt-3">${newsTitle}</h5>
@@ -43,10 +43,32 @@ newNews.forEach((news) => {
     addNews(formNewsHTML(news.newsText, news.newsTitle, news.key, news.img));
 });
 
-fetch('newsData.json')
+const isOnline = () => window.navigator.onLine;
+
+window.onload = async () => {
+    if (!isOnline()) {
+        return false;
+    } else {
+        const res = await fetch('http://localhost:3000/news', {
+            method: 'GET',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+        });
+        const data = await res.json();
+        console.log(data);
+        data.forEach(news => {
+            addNews(formNewsHTML(news.newsTextValue, news.newsTitleValue, news.imgPath));
+        })
+    }
+};
+
+/*fetch('newsData.json')
     .then(response => response.json())
     .then(data =>
         data.forEach((news) => {
             addNews(formNewsHTML(news.newsText, news.newsTitle, news.key, news.img));
         })
     )
+*/

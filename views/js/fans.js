@@ -7,7 +7,7 @@ const alertSuccess = document.querySelector('.alert-success');
 const alertError = document.querySelector('.alert-danger');
 const clearComments = document.querySelector('#clearComments');
 
-let useLocalStorage = false;
+let useLocalStorage = true;
 
 const isOnline = () => {
     return window.navigator.onLine;
@@ -41,11 +41,6 @@ const saveToLocalStorage = (key, userName, userComment) => {
     })
     localStorage.setItem('comments', JSON.stringify(localComments));
 }
-
-let newComments = JSON.parse(localStorage.getItem('comments')) || [];
-newComments.forEach((comments) => {
-    addComments(formCommentsHTML(comments.userName, comments.userComment, comments.key));
-});
 
 const request = window.indexedDB.open('chelseaDB', 5);
 let db;
@@ -83,8 +78,14 @@ function onAddComment(event) {
     }
 
     if (isOnline()) {
-        console.log('Online');
-        return false;
+        fetch('http://localhost:3000/fans', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json, text/plain, */*',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ userNameValue, userCommentValue, date }),
+        });
     } else {
         if (useLocalStorage) {
             saveToLocalStorage(date, userNameValue, userCommentValue);
@@ -101,17 +102,53 @@ function onAddComment(event) {
 
     userName.value = '';
     userComment.value = '';
-    listFans.insertAdjacentHTML('beforeend',
-        `<hr>
-            <article>
-                <p>${userCommentValue}</p>
-                <div class="footer-fans">
-                    <span>${date}</span>
-                    <span class="name-fan">${userNameValue}</span>
-                </div>
-            </article>`
-    );
+    if (isOnline()) {
+        addComments(formCommentsHTML(userNameValue, userCommentValue, date));
+    }
 }
+
+window.onload = async () => {
+    if (!isOnline()) {
+        return false;
+    } else {
+        const res = await fetch('http://localhost:3000/fans', {
+            method: 'GET',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+        });
+        const data = await res.json();
+        console.log(data);
+        data.forEach(comment => {
+            addComments(formCommentsHTML(comment.userNameValue, comment.userCommentValue, comment.date));
+        })
+    }
+};
+
+function uploadAppealToServer(event) {
+    if (event.type == "online") {
+        let newComments = JSON.parse(localStorage.getItem('comments')) || [];
+        newComments.forEach((comments) => {
+            addComments(formCommentsHTML(comments.userName, comments.userComment, comments.key));
+            fetch('http://localhost:3000/fans', {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json, text/plain, */*',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ userNameValue: comments.userName, userCommentValue: comments.userComment, date: comments.key }),
+            });
+        });
+        clearLS();
+    }
+    if (event.type == "offline") {
+        console.log("You lost connection.");
+    }
+}
+
+window.addEventListener('online', uploadAppealToServer);
+window.addEventListener('offline', uploadAppealToServer);
 
 clearComments.addEventListener('click', clearLS);
 buttonSend.addEventListener('click', onAddComment);
